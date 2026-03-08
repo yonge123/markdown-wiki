@@ -6,6 +6,7 @@
 - [Gimp](../Gimp/Gimp.md)
 - [Krita](../Krita/Krita.md)
 - [Inkscape](../Inkscape/Inkscape.md)
+- [PixEditor](../PixiEditor/PixiEditor.md)
 
 ## Diagram 
 

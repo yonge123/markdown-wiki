@@ -1,9 +1,9 @@
 ---
 tags:
-    - video
-mdfile_icon: "_sources/svgs/pixieditor.svg"
+  - video
+mdfile_icon: sources/svgs/pixieditor.svg
 mdfile_color: "#cb1133"
-mdfile_site: "https://pixieditor.net/"
+mdfile_site: https://pixieditor.net/
 ---
 
 

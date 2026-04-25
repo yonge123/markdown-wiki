@@ -1,0 +1,570 @@
+/* ============================================================
+   Nord Markdown — MkDocs (Material) stylesheet
+   Port of the "Nord Markdown Preview" VSCode theme.
+   Drop this in docs/stylesheets/ and reference in mkdocs.yml:
+       extra_css:
+         - stylesheets/nord-markdown.css
+   ============================================================ */
+.md-main__inner {
+    margin-top: 0rem;
+}
+.md-header .md-header__inner {
+    height: 30px;
+   }
+
+.md-search__form {
+    background-color:#00000042;
+    border-radius:.1rem;
+    height: 1.2rem;
+  }
+
+  
+/* ------------------------------------------------------------
+   Palette (Nord + One Dark Pro for code)
+   ------------------------------------------------------------ */
+:root {
+    --nm-bg:            #1e2128;
+    --nm-bg-2:          #22272f;
+    --nm-bg-3:          #2a2b2f;
+    --nm-bg-code:       #282c34;
+    --nm-surface:       #3b4252;
+    --nm-surface-2:     #4c566a;
+    --nm-border:        #444;
+    --nm-text:          #d8dee9;
+    --nm-text-dim:      #7b8698;
+
+    --nm-h1:            #BF616A;
+    --nm-h2:            #cfb682;
+    --nm-h3:            #A3BE8C;
+    --nm-h4:            #B48EAD;
+    --nm-h5:            #8FBCBB;
+    --nm-h6:            #88C0D0;
+
+    --nm-link:          #8e82b9;
+    --nm-link-hover:    #8271c2;
+
+    --nm-code-inline:   #69c7d8;
+
+    /* One Dark Pro palette for syntax highlighting */
+    --odp-keyword:      #c678dd;
+    --odp-string:       #98c379;
+    --odp-number:       #d19a66;
+    --odp-function:     #61afef;
+    --odp-builtin:      #e5c07b;
+    --odp-variable:     #e06c75;
+    --odp-operator:     #56b6c2;
+    --odp-comment:      #5c6370;
+    --odp-text:         #abb2bf;
+}
+
+/* ------------------------------------------------------------
+   Page background (dark by default)
+   ------------------------------------------------------------ */
+[data-md-color-scheme="slate"] {
+    --md-default-bg-color: var(--nm-bg);
+    --md-default-fg-color: var(--nm-text);
+    --md-default-fg-color--light: var(--nm-text-dim);
+    --md-default-fg-color--lighter: #5b6780;
+    --md-default-fg-color--lightest: #3b4556;
+}
+
+/* ------------------------------------------------------------
+   Scrollbar
+   ------------------------------------------------------------ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--nm-bg);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--nm-surface);
+    border-radius: 4px;
+    border: 2px solid var(--nm-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--nm-surface-2);
+}
+::-webkit-scrollbar-corner {
+    background: var(--nm-bg);
+}
+
+/* ------------------------------------------------------------
+   Headings
+   ------------------------------------------------------------ */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    scroll-margin-top: 80px;
+    border-bottom: none;
+    font-weight: bold;
+}
+
+.md-typeset h1 { color: var(--nm-h1) !important; }
+.md-typeset h2 { color: var(--nm-h2) !important; margin-top: 3em; margin-bottom: 1em; }
+.md-typeset h3 { color: var(--nm-h3) !important; margin-top: 3em; }
+.md-typeset h4 { color: var(--nm-h4) !important; margin-top: 3em; }
+.md-typeset h5 { color: var(--nm-h5) !important; margin-top: 2em; }
+.md-typeset h6 { color: var(--nm-h6) !important; margin-top: 2em; }
+
+/* ------------------------------------------------------------
+   Links
+   ------------------------------------------------------------ */
+.md-typeset a {
+    color: var(--nm-link);
+}
+.md-typeset a:hover,
+.md-typeset a:focus {
+    color: var(--nm-link-hover);
+}
+
+/* ------------------------------------------------------------
+   Tables
+   ------------------------------------------------------------ */
+.md-typeset table:not([class]) {
+    border-collapse: collapse;
+    border: 1px solid var(--nm-border);
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+    border: 1px solid var(--nm-border);
+    padding: 6px 12px;
+}
+
+.md-typeset table:not([class]) thead tr {
+    background-color: var(--nm-bg-2);
+    color: #e0e0e0;
+}
+
+.md-typeset table:not([class]) tbody tr {
+    background-color: #333a47;
+    color: #cccccc;
+    border-bottom: 1px solid var(--nm-border);
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+    background-color: #2b303b;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+    background-color: #2a3a4a;
+}
+
+/* ------------------------------------------------------------
+   Inline code  e.g.  `code`
+   ------------------------------------------------------------ */
+.md-typeset code {
+    background-color: var(--nm-surface);
+    color: var(--nm-code-inline);
+    border-radius: 3px;
+    padding: 2px 5px;
+    border: none;
+    box-shadow: none;
+}
+
+/* Don't double-style inline code that's inside links */
+.md-typeset a > code {
+    color: var(--nm-link);
+}
+
+/* ------------------------------------------------------------
+   Fenced code blocks  ```...```
+   ------------------------------------------------------------ */
+.md-typeset pre,
+.md-typeset pre > code,
+.md-typeset .highlight pre {
+    background-color: var(--nm-bg-code);
+    border-radius: 6px;
+    padding: 14px 18px;
+    position: relative;
+    overflow-x: auto;
+    line-height: 1.6;
+}
+
+.md-typeset .highlight {
+    background: transparent;
+}
+
+.md-typeset pre code,
+.md-typeset .highlight pre code {
+    background: transparent;
+    color: var(--odp-text);
+    padding: 0;
+    font-family: "Fira Code", "JetBrains Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+    font-size: 13.5px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Line numbers column (pymdownx.highlight: linenums) */
+.md-typeset .highlighttable .linenodiv pre {
+    background: transparent;
+    color: var(--odp-comment);
+}
+
+/* ------------------------------------------------------------
+   Syntax highlighting — Pygments classes
+   (MkDocs default via pymdownx.highlight + Pygments)
+   One Dark Pro palette
+   ------------------------------------------------------------ */
+
+/* Keywords */
+.highlight .k,  .highlight .kc, .highlight .kd,
+.highlight .kn, .highlight .kp, .highlight .kr,
+.highlight .kt                             { color: var(--odp-keyword); }
+
+/* Strings */
+.highlight .s,  .highlight .sa, .highlight .sb,
+.highlight .sc, .highlight .dl, .highlight .s2,
+.highlight .se, .highlight .sh, .highlight .si,
+.highlight .sx, .highlight .sr, .highlight .s1,
+.highlight .ss                             { color: var(--odp-string); }
+
+/* Numbers */
+.highlight .m,  .highlight .mb, .highlight .mf,
+.highlight .mh, .highlight .mi, .highlight .mo,
+.highlight .il                             { color: var(--odp-number); }
+
+/* Functions / class names */
+.highlight .nf,                            /* Name.Function */
+.highlight .fm,                            /* Name.Function.Magic */
+.highlight .nc                             /* Name.Class */
+                                           { color: var(--odp-function); font-weight: 600; }
+
+/* Built-ins / type names */
+.highlight .nb,                            /* Name.Builtin */
+.highlight .bp,                            /* Name.Builtin.Pseudo (self/cls in some lexers) */
+.highlight .nt                             /* Name.Tag — HTML */
+                                           { color: var(--odp-builtin); }
+
+/* Variables */
+.highlight .nv, .highlight .vc,
+.highlight .vg, .highlight .vi             { color: var(--odp-variable); }
+
+/* Operators / punctuation */
+.highlight .o, .highlight .ow              { color: var(--odp-operator); }
+.highlight .p                              { color: var(--odp-text); }
+
+/* Attributes / properties */
+.highlight .na, .highlight .py             { color: var(--odp-number); }
+
+/* Decorators / meta */
+.highlight .nd                             { color: var(--odp-function); font-style: italic; }
+.highlight .cp                             { color: var(--odp-function); }
+
+/* Type hints */
+.highlight .kt                             { color: var(--odp-builtin); }
+
+/* Comments */
+.highlight .c,  .highlight .ch, .highlight .cm,
+.highlight .cpf, .highlight .c1, .highlight .cs,
+.highlight .sd                             { color: var(--odp-comment); font-style: italic; }
+
+/* HTML / XML */
+.highlight .nt                             { color: var(--odp-variable); }
+
+/* Selectors (CSS) */
+.highlight .nc.selector-class              { color: var(--odp-builtin); }
+
+/* Diffs */
+.highlight .gi { color: var(--odp-string); background: rgba(152,195,121,0.12); display: inline-block; width: 100%; }
+.highlight .gd { color: var(--odp-variable); background: rgba(224,108,117,0.12); display: inline-block; width: 100%; }
+
+/* Emphasis */
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: bold; }
+.highlight .gh { color: var(--odp-builtin); font-weight: bold; }
+
+/* Generic tokens */
+.highlight .err                            { color: var(--odp-variable); background: none; }
+
+/* ------------------------------------------------------------
+   Highlight.js fallback (if you use pymdownx.highlight: use_pygments: false)
+   ------------------------------------------------------------ */
+.md-typeset pre.hljs {
+    background-color: var(--nm-bg-code);
+    border-radius: 6px;
+    padding: 14px 18px;
+    overflow-x: auto;
+    line-height: 1.6;
+    margin: 16px 0;
+}
+.md-typeset pre.hljs code,
+.md-typeset pre.hljs code.hljs {
+    background: transparent;
+    color: var(--odp-text);
+    padding: 0;
+}
+.hljs-keyword, .hljs-operator.hljs-word       { color: var(--odp-keyword); }
+.hljs-string,  .hljs-template-variable,
+.hljs-template-tag, .hljs-regexp              { color: var(--odp-string); }
+.hljs-subst                                   { color: var(--odp-text); }
+.hljs-number, .hljs-literal                   { color: var(--odp-number); }
+.hljs-title, .hljs-title.function_,
+.hljs-title.class_, .hljs-function .hljs-title{ color: var(--odp-function); font-weight: 600; }
+.hljs-built_in, .hljs-class                   { color: var(--odp-builtin); }
+.hljs-variable, .hljs-variable.language_      { color: var(--odp-variable); }
+.hljs-params, .hljs-param                     { color: var(--odp-text); }
+.hljs-operator, .hljs-punctuation             { color: var(--odp-operator); }
+.hljs-attr, .hljs-attribute, .hljs-property   { color: var(--odp-number); }
+.hljs-meta, .hljs-meta .hljs-string,
+.hljs-decorator                               { color: var(--odp-function); font-style: italic; }
+.hljs-type                                    { color: var(--odp-builtin); }
+.hljs-comment, .hljs-doctag                   { color: var(--odp-comment); font-style: italic; }
+.hljs-tag, .hljs-name, .hljs-selector-tag     { color: var(--odp-variable); }
+.hljs-selector-class                          { color: var(--odp-builtin); }
+.hljs-selector-id                             { color: var(--odp-function); }
+.hljs-selector-pseudo                         { color: var(--odp-operator); }
+
+/* ------------------------------------------------------------
+   Mark / highlighted text
+   ------------------------------------------------------------ */
+.md-typeset mark,
+.md-typeset mark * {
+    background-color: #ff6b6b !important;
+    color: #ffffff !important;
+}
+
+/* ------------------------------------------------------------
+   Tabbed content  (pymdownx.tabbed, === "Label")
+   ------------------------------------------------------------ */
+.md-typeset .tabbed-set {
+    margin: 20px 0;
+    border: 1px solid var(--nm-surface);
+    border-radius: 6px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.md-typeset .tabbed-labels {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--nm-bg-2);
+    border-bottom: 1px solid var(--nm-surface);
+    padding: 0 4px;
+    box-shadow: none;
+}
+
+.md-typeset .tabbed-labels > label {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--nm-text-dim);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    padding: 2px 2px;
+    margin-bottom: -1px;
+    transition: color .15s, border-color .15s;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+.md-typeset .tabbed-labels > label:hover {
+    color: var(--nm-text);
+}
+
+.md-typeset .tabbed-set > input:checked + label,
+.md-typeset .tabbed-set > input:checked + label + .tabbed-labels > label {
+    color: #88c0d0;
+    border-bottom-color: #88c0d0;
+    font-weight: 600;
+}
+
+.md-typeset .tabbed-content {
+    padding: 16px 20px;
+    background: var(--nm-bg);
+}
+
+.md-typeset .tabbed-content .tabbed-block > *:first-child { margin-top: 0 !important; }
+.md-typeset .tabbed-content .tabbed-block > *:last-child  { margin-bottom: 0 !important; }
+.md-typeset .tabbed-content pre { margin: 0; }
+
+/* ------------------------------------------------------------
+   md-button  ([Label](url){ .md-button .md-button--primary })
+   Material-native class names, Nord-coloured.
+   ------------------------------------------------------------ */
+.md-typeset .md-button {
+    display: inline-block;
+    padding: .4375em 1em;
+    border-radius: .1rem;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .0625em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    line-height: 1.6;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: .125em .25em .125em 0;
+    user-select: none;
+
+    border: .1rem solid #81a1c1;
+    color: #88c0d0 !important;
+    background-color: transparent;
+
+    transition:
+        color            125ms,
+        background-color 125ms,
+        border-color     125ms,
+        box-shadow       125ms;
+}
+
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus-visible {
+    background-color: #88c0d0;
+    border-color:     #88c0d0;
+    color: #2e3440 !important;
+    box-shadow: 0 0 0 .2rem rgba(136, 192, 208, .25);
+    outline: none;
+}
+
+.md-typeset .md-button:active {
+    background-color: #81a1c1;
+    border-color:     #81a1c1;
+    color: #2e3440 !important;
+    box-shadow: none;
+}
+
+.md-typeset .md-button.md-button--primary {
+    background-color: #5e81ac;
+    border-color:     #5e81ac;
+    color: #eceff4 !important;
+}
+
+.md-typeset .md-button.md-button--primary:hover,
+.md-typeset .md-button.md-button--primary:focus-visible {
+    background-color: #81a1c1;
+    border-color:     #81a1c1;
+    color: #eceff4 !important;
+    box-shadow: 0 0 0 .2rem rgba(94, 129, 172, .35);
+}
+
+.md-typeset .md-button.md-button--primary:active {
+    background-color: #4c6f97;
+    border-color:     #4c6f97;
+    color: #eceff4 !important;
+}
+
+/* ------------------------------------------------------------
+   Task lists  (pymdownx.tasklist)
+   ------------------------------------------------------------ */
+.md-typeset .task-list-item {
+    list-style: none;
+    margin: .2em 0;
+    line-height: 1.6;
+}
+
+.md-typeset .task-list-control {
+    margin-right: .4em;
+}
+
+.md-typeset .task-list-indicator::before {
+    background-color: var(--nm-surface);
+    border-radius: 3px;
+}
+
+.md-typeset [type=checkbox]:checked + .task-list-indicator::before {
+    background-color: #88c0d0;
+}
+
+/* Checked item text — Nord cyan */
+.md-typeset .task-list-item [type=checkbox]:checked ~ * {
+    color: #88c0d0;
+}
+
+/* ------------------------------------------------------------
+   Light theme overrides   [data-md-color-scheme="default"]
+   ------------------------------------------------------------ */
+[data-md-color-scheme="default"] {
+    --md-default-bg-color: #ffffff;
+}
+
+[data-md-color-scheme="default"] .md-typeset h1,
+[data-md-color-scheme="default"] .md-typeset h2,
+[data-md-color-scheme="default"] .md-typeset h3,
+[data-md-color-scheme="default"] .md-typeset h4,
+[data-md-color-scheme="default"] .md-typeset h5,
+[data-md-color-scheme="default"] .md-typeset h6 {
+    color: #4d4d4d !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset a       { color: #5a4a9a !important; }
+[data-md-color-scheme="default"] .md-typeset a:hover { color: #4a3a8a !important; }
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) th,
+[data-md-color-scheme="default"] .md-typeset table:not([class]) td {
+    border-color: #c0c8d8 !important;
+}
+[data-md-color-scheme="default"] .md-typeset table:not([class]) thead tr {
+    background-color: #dde2ee !important; color: #2e3440 !important;
+}
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tbody tr {
+    background-color: #f0f2f8 !important; color: #2e3440 !important;
+}
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tbody tr:nth-child(even) {
+    background-color: #e8eaf4 !important;
+}
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tbody tr:hover {
+    background-color: #dde4f0 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset code {
+    background-color: #e4e8f2 !important; color: #2a6a80 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset pre,
+[data-md-color-scheme="default"] .md-typeset .highlight pre {
+    background-color: #f0f2f8 !important;
+}
+[data-md-color-scheme="default"] .md-typeset pre code,
+[data-md-color-scheme="default"] .md-typeset .highlight pre code {
+    background-color: transparent !important; color: #383a42 !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset mark,
+[data-md-color-scheme="default"] .md-typeset mark * {
+    background-color: #e05050 !important; color: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset .tabbed-content {
+    background: #ffffff;
+}
+[data-md-color-scheme="default"] .md-typeset .tabbed-labels {
+    background: #edf0f8;
+    border-bottom: 1px solid #c0c8d8;
+}
+[data-md-color-scheme="default"] .md-typeset .tabbed-labels > label {
+    color: #6a7387;
+}
+[data-md-color-scheme="default"] .md-typeset .tabbed-labels > label:hover {
+    color: #2e3440;
+}
+[data-md-color-scheme="default"] .md-typeset .tabbed-set > input:checked + label {
+    color: #5e81ac;
+    border-bottom-color: #5e81ac;
+}
+
+/* Light-mode scrollbars */
+[data-md-color-scheme="default"] ::-webkit-scrollbar {
+    background: #e8eaf4 !important;
+}
+[data-md-color-scheme="default"] ::-webkit-scrollbar-track {
+    background: #e8eaf4 !important;
+}
+[data-md-color-scheme="default"] ::-webkit-scrollbar-thumb {
+    background: #b0b8cc !important;
+    border: 2px solid #e8eaf4 !important;
+}
+[data-md-color-scheme="default"] ::-webkit-scrollbar-thumb:hover {
+    background: #acadaf !important;
+}
+[data-md-color-scheme="default"] ::-webkit-scrollbar-corner {
+    background: #e8eaf4 !important;
+}

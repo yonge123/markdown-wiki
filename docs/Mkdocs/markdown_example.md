@@ -1,5 +1,4 @@
 ---
-title: My Document
 author: Author
 tags:
   - markdown
@@ -9,8 +8,9 @@ tags:
 
 # Markdown Example
 
+**Table of contents**
+
 - [Markdown Example](#markdown-example)
-- [Markdown](#markdown)
   - [H2](#h2)
     - [H3](#h3)
       - [H4](#h4)
@@ -42,8 +42,6 @@ tags:
   - [Mermaid](#mermaid)
 
 ```
-# Markdown
-
 ## H2
 ### H3
 #### H4
@@ -51,7 +49,6 @@ tags:
 ###### H6
 ```
 
-# Markdown
 ## H2
 ### H3
 #### H4

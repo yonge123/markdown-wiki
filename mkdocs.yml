@@ -89,8 +89,8 @@ plugins:
 
 use_directory_urls: false
 
-# extra_css:
-#   - sources/stylesheets/extra.css
+extra_css:
+  - sources/stylesheets/nord_markdown.css
 
 extra_javascript:
     - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'
